@@ -4,15 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <unistd.h> // for close
 #ifdef _WIN32
 #include <winsock2.h>
 #else
 #include <sys/socket.h>
 #include <netinet/in.h>
 #endif
-
 int main() {
-    char server_msg[256] = "Welcome to the server boy!";
+    char server_msg[256] = "Welcome to the server boy! \n";
 
     //create
     int server_socket;

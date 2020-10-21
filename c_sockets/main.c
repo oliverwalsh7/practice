@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <unistd.h> // for close
+
+#ifdef _WIN32
 #include <winsock2.h>
+#else
+#include <sys/socket.h>
+#include <netinet/in.h>
+#endif
 
 /**
  * Oliver Walsh
@@ -32,7 +39,7 @@ int main() {
 
     // check connection
     if (connection_status == -1) {
-        printf("Dikembe Mutumbo");
+        printf("Dikembe Mutumbo: NO NO NO! \n");
     }
 
     // receive data from server
